@@ -1,0 +1,192 @@
+<DOCTYPE! html>
+
+<html>
+
+	<title>Tip Calculator</title>
+<body>
+<div class="content">
+	<div class="box-one">
+		<span>Bill Amount:</span>
+			<span class="dollar-sign">$</span> 
+				<input type="text" id="bill" value placeholder="0.00" class="amount-field">
+				<br>
+	</div>
+	<div class="box-two">
+			<span>Percentage:</span>
+				<span class="percent-sign">%</span> 
+					<input type="text" id="percent" value placeholder="0" class="amount-field">
+					<br>
+	</div>
+
+<div class="equal"></div>
+
+	<div class="box-three">
+		<input  type="button" id="Calculate" value="Calculate" class="calculate-button"><br>
+			<span class="dollar-sign">$</span>  
+				<input type="text" id="total" value placeholder="TIP" disabled="disabled" class="amount-field">
+	</div>
+</div>
+</body>
+
+	<style>
+		.content {
+			padding-left: 225px;
+			margin-top: -40px;
+			padding-right: 225px;
+			width: 10040
+			height: 100%;
+		}
+		.box-one {
+			margin: 50px;
+			width: 950px;
+			height: 135px;
+			background-color: #233b54;
+			padding: 75px;
+			font-size:15px;
+			font-family: Arquitecta, sans-serif;
+			letter-spacing: 3px;
+			display: flex;
+			margin-bottom: -30px;
+			border: 0px;
+    		border-radius: 150px;
+    		background-image: url(https://www.xmple.com/wallpaper/blue-green-gradient-linear-5120x2880-c2-191970-3cb371-a-15-f-14.svg);
+    		background-size: 200% 200%
+		}
+		.box-two {
+			margin: 50px;
+			width: 950px;
+			height: 135px;
+			background-color: #233b54;
+			padding: 75px;
+			font-size:15px;
+			font-family: Arquitecta, sans-serif;
+			letter-spacing: 3px;
+			display: flex;
+			margin-bottom: -30px;
+			border: 0px;
+    		border-radius: 150px;
+    		background-image: url(https://www.xmple.com/wallpaper/blue-green-gradient-linear-5120x2880-c2-191970-3cb371-a-15-f-14.svg);
+    		background-size: 200% 200%
+		}
+		.tip-amount {
+			display: flex;
+			justify-content: flex-end;
+		}
+		.box-three {
+			margin: 50px;
+			width: 950px;
+			height: 135px;
+			background-color: #233b54;
+			padding: 75px;
+			font-size:15px;
+			font-family: Arquitecta, sans-serif;
+			letter-spacing: 3px;
+			display: flex;
+			border: 0px;
+    		border-radius: 150px;
+     		background-image: url(https://www.xmple.com/wallpaper/blue-green-gradient-linear-5120x2880-c2-191970-3cb371-a-15-f-14.svg);
+     		background-size: 200% 200%
+		}
+		.equal {
+			margin: 50px;
+			background-color: #191a70;
+			width: 1100px;
+			height: 25px;
+			margin-bottom: -30px;
+			border: 0px;
+    		border-radius: 150px;
+    		background-image: url(https://www.xmple.com/wallpaper/blue-green-gradient-linear-5120x2880-c2-191970-3cb371-a-15-f-14.svg);
+		}
+		span {
+			font-size: 62.5px;
+			text-transform: uppercase;
+			width: 950px;
+			padding: 10px 5px;
+			text-align: right;
+			margin-top: 27.5px;
+			margin-right: 0px;
+			color: #fff;
+		}
+		.dollar-sign {
+			width: 250px;
+			text-align: right;
+			font-size: 80px;
+			margin-top: 17.5px;
+			margin-left: -15px;
+			margin-right: 5px;
+		}
+		.percent-sign {
+			width: 275px;
+			text-align: right;
+			font-size: 80px;
+			margin-top: 17.5px;
+			margin-left: -20px;
+			margin-right: 10px;
+		}
+		input {
+			width: 250px;
+			margin: 10px 0 10px 0;
+		}
+
+		h3 {
+			margin-left: 5px;
+		}
+		.amount-field {
+			font-family: Arquitecta, sans-serif;
+			width: 380px;
+			padding: 2px;
+			padding-left: 50px;
+			font-size: 75px;
+			color: #20263e;
+			border: 0px;
+    		border-radius: 150px;
+    		margin-bottom: 
+		}
+		.calculate-button {
+			font-family: Arquitecta, sans-serif;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			width: 1250px;
+			padding: 2px;
+			padding-left: 0px;
+			font-size: 60px;
+			color: #fff;
+			border: 0px;
+    		border-radius: 150px;
+    		background-color: #191a70;
+    		background-image: url(http://www.psdgraphics.com/file/dark-gradient.jpg);
+		}
+		body {
+			background-image: url(http://www.psdgraphics.com/file/dark-gradient.jpg);
+		}
+	</style>
+
+ 	<script>
+ 		var $ = function (id) {
+			return document.getElementById(id);
+		}
+		var CalculateClick = function () {
+	    var bill = parseFloat( $("bill").value );
+	    var percent = parseFloat( $("percent").value );
+
+		if (isNaN(bill) || bill <= 0) {
+		    alert("Value has to be a number greater than $0.00");
+		} 
+
+		else if(isNaN(percent) || percent <= 0) {
+		    alert("The percentage has to be greater than 0%");
+		}
+
+		else {
+		    var total = bill * (percent / 100);
+
+		    $("total").value = total.toFixed(2);
+		} 
+		}
+
+		window.onload = function () {
+		$("Calculate").onclick = CalculateClick;
+		$("bill").focus();
+		}
+	</script>
+</html>
